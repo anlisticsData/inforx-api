@@ -1,0 +1,34 @@
+{
+    "name": "edi/core",
+    "description": "sistema de estacionamento",
+    "autoload": {
+        "psr-4": {
+            "Adapters\\": "Adapters/",
+            "Commons\\": "Commons/",
+            "Dtos\\": "Dtos/",
+            "Interfaces\\": "Interfaces/",
+            "Models\\": "Models/",
+            "Repositories\\": "Repositories/",
+            "Requests\\": "Requests/",
+            "Services\\": "Services/",
+            "Resources\\": "Resources/",
+            "Middleware\\":"Middleware/",
+            "UseCases\\":"UseCases/" ,
+            "Tests\\": "Tests/"
+
+        }
+    },
+    "authors": [
+        {
+            "name": "EdilsonCsilva"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6",
+        "phpmailer/phpmailer": "^6.9",
+        "analisticsdatasystemclock/analistics-data-systemclock": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
+    }
+}

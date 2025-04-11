@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#Resumo Diário </title>
+    <!-- Include Font Awesome for the printer icon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header, .footer {
+            background-color: #f1f1f1;
+            padding: 10px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #fff;
+        }
+        th:hover {
+            background-color: #45a049;
+        }
+        .summary {
+            margin-top: 20px;
+        }
+        
+        #printButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            display: block; /* Ensure the button is always visible */
+            border-radius: 5px;
+        }
+        #printButton:hover {
+            background-color: #45a049;
+        }
+    
+        /* Printer icon styling */
+        #printButton i {
+            margin-right: 8px;
+        }
+    
+        td {
+            text-align: right;
+        }
+    
+    </style>
+    
+
+    
+</head>
+<body>
+    <div class="header">
+        <h1>Resumo do Movimento do Dia</h1>
+        <p>{{title}}</p>
+    </div>
+
+    <div class="content">
+        <h2>Resumo dos Pagamentos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Placa</th>
+                    <th>Convênios</th>
+                    <th>Criado em</th>
+                    <th>Valor R$</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{summaryRows}}
+            </tbody>
+        </table>
+
+
+        <div class="container">
+            <div class="row">
+                <!-- Tabela de Resumo do Descontos Aplicados por Convênios -->
+                <div class="col-md-6">
+                    <h2>Resumo do Descontos Aplicados por Convênios</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Convênios</th>
+                                <th>Descontos Aplicados</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{agreementsSummaryRows}}
+                        </tbody>
+                    </table>
+                </div>
+        
+                <!-- Tabela de Resumo dos Pagamentos -->
+                <div class="col-md-6">
+                    <h2>Resumo dos Pagamentos</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Subtotal</th>
+                                <th>Descontos</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{paymentsSummary}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+
+     
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 inforx.tech</p>
+    </div>
+
+    <!-- Print Button with Printer Icon -->
+    <button id="printButton" onclick="window.print();">
+        <i class="fas fa-print"></i> Print
+    </button>
+</body>
+</html>

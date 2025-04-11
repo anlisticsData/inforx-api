@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumo de Pagamento</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Faz o conteúdo ocupar toda a altura da tela */
+            background-color: #f4f4f4; /* Fundo leve para destacar o conteúdo */
+        }
+        .container { 
+            padding: 20px; 
+            background-color: white; /* Fundo branco para destacar o conteúdo */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            border-radius: 10px; /* Bordas arredondadas */
+            max-width: 800px; /* Limita a largura máxima do conteúdo */
+            width: 100%;
+        }
+        table { 
+            width: 100%; 
+            margin-bottom: 20px; 
+            border-collapse: collapse; 
+        }
+        th, td { 
+            padding: 10px; 
+            text-align: left; 
+            border: 1px solid #ddd; 
+        }
+        th { 
+            background-color: #4CAF50; 
+            color: white; 
+        }
+        .summary { 
+            margin-top: 20px; 
+            font-size: 16px; 
+        }
+        #printButton {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        #printButton:hover {
+            background-color: #45a049;
+        }
+    </style>
+
+    <style>
+        @media print {
+            /* Redefine as margens da página para garantir que o conteúdo ocupe toda a largura */
+            body, html {
+                margin: 0;
+                padding: 0;
+                width: 80mm; /* Para impressora térmica de 80mm */
+                font-size: 12px; /* Ajusta o tamanho da fonte */
+            }
+
+            /* Remover elementos que não são necessários para a impressão */
+            #printButton {
+                display: none; /* Esconde o botão de impressão na impressão */
+            }
+
+            .container {
+                padding: 0;
+                width: 100%;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            th, td {
+                padding: 5px;
+                font-size: 12px; /* Ajuste do tamanho de fonte */
+                text-align: left;
+                border: 1px solid #ddd;
+            }
+
+            th {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            footer {
+                font-size: 10px;
+                text-align: center;
+                margin-top: 10px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Resumo de Pagamento</h1>
+        <p><strong>Total Recebido:</strong> R$ {{totalRecebido}}</p>
+        <p><strong>Total de Descontos:</strong> R$ {{totalDescontos}}</p>
+        <p><strong>Total de Veículos:</strong> {{vehicles}}</p>
+        <p><strong>Total Avusos:</strong> {{separate}}</p>
+        <p><strong>Convênios Acreditados:</strong> {{accredited}}</p>
+        <p><strong>Mensalistas:</strong> {{monthlypayers}}</p>
+
+        <h2>Métodos de Pagamento</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Método de Pagamento</th>
+                    <th>Quantidade</th>
+                    <th>Total Recebido</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{paymentMethods}}
+            </tbody>
+        </table>
+
+        <p><strong>Total de Cancelamentos:</strong> {{cancelations}}</p>
+        <p><strong>Total de Não Existentes:</strong> {{notExit}}</p>
+
+        <!-- Botão de Imprimir -->
+        <button id="printButton" onclick="window.print();">
+            Imprimir Resumo
+        </button>
+
+        <footer class="footer">
+            <p>&copy; 2025 inforx.tech</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+POST http://localhost/inforcomp.parking.api/public/users/authenticate HTTP/1.1
+content-type: application/json
+
+{
+    "login": "deolhonofonte@gmail.com",
+    "password": "@Sidneia123"
+}

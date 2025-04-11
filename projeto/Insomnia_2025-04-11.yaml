@@ -1,0 +1,1524 @@
+type: collection.insomnia.rest/5.0
+name: Api-InforX
+meta:
+  id: wrk_cb74a5bd79cc404d8eb82491713f86d3
+  created: 1742757936352
+  modified: 1742757936352
+collection:
+  - name: Users
+    meta:
+      id: fld_e1e73e348fd046bf99c9069986bf8bac
+      created: 1733439764981
+      modified: 1733439764981
+      sortKey: -1733439764981
+    children:
+      - url: "{{api}}/users/authenticate"
+        name: authentication
+        meta:
+          id: req_f9a7f61921f0468a99cee18eb14860a8
+          created: 1733439879773
+          modified: 1741855228526
+          isPrivate: false
+          sortKey: -1733439769776
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "login": "kkids@kkids.com.br",
+                "password": "Kkidsfrentecaixa"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/users/changePassword"
+        name: changepassword
+        meta:
+          id: req_6865ec0d95d44a9daa8a036ee10aee96
+          created: 1737295852314
+          modified: 1737299494412
+          isPrivate: false
+          sortKey: -1733439769769.75
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            		"current_password":"1234",  
+            	"new_password": "1"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.0.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/users/authenticate-print"
+        name: authentication-print
+        meta:
+          id: req_0d7c09e124e846de9a1a580b6e0376fe
+          created: 1741117327776
+          modified: 1743592633120
+          isPrivate: false
+          sortKey: -1733439769772.875
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "login": "kkids@kkids.com.br",
+                "password": "Kkidsfrentecaixa"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.0.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Payments
+    meta:
+      id: fld_ae9f0c54821e4893a9d37f8709806a41
+      created: 1734622710075
+      modified: 1735863295751
+      sortKey: -1734622710075
+    children:
+      - url: "{{api}}/payments/parkingexit"
+        name: paymentsexit
+        meta:
+          id: req_5a1b340cdb44427ab5704a3bd75854d2
+          created: 1734539563797
+          modified: 1740737062246
+          isPrivate: false
+          sortKey: -1734622741011
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"uuid":"5170_QXM7C88_29_20250213_085208"
+
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.0.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/payments/finalizepayment"
+        name: finalizepayment
+        meta:
+          id: req_53f1cfa072b5401db784ba76e88086ba
+          created: 1734622830729
+          modified: 1742837967398
+          isPrivate: false
+          sortKey: -1734031255393.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+
+            	"fk_agreements_discont":60,
+            	"fk_payment_types":5,
+            	"fk_pricing_id":0,
+            	"receipt_by_box":11.00,
+            	"uuid_id_plate_direction_create":"1629_GJA1E39_29_20250324_083431"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.0.0
+          - name: Authorization
+            value: "{{jwt}}"
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/payments/check-monthly-payment"
+        name: check-monthly-payment
+        meta:
+          id: req_d995fabc92c14398a3dee8bf7a8f7934
+          created: 1736074805246
+          modified: 1740737064679
+          isPrivate: false
+          sortKey: -1733735512584.75
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+
+            "fk_monthly_payer",
+            "payment_made_on"
+            "payment_date","state","payment_value"
+
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.0.0
+          - name: Authorization
+            value: "{{jwt}}"
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/payments/cash-closing-by-period"
+        name: check-monthly-payment_cast
+        meta:
+          id: req_ab1d9726ec7c40bf85bf3cbbc1f4fc73
+          created: 1739732654786
+          modified: 1740737066917
+          isPrivate: false
+          sortKey: -1733587641180.375
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "initial": "2025-02-25",
+              "end": "2025-02-25"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.0.0
+          - name: Authorization
+            value: "{{jwt}}"
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/payments/cash-closing-by-period"
+        name: check-monthly-payment_period
+        meta:
+          id: req_9c33370973cc4f80a7fc808bc31cd67d
+          created: 1740605708443
+          modified: 1740737073896
+          isPrivate: false
+          sortKey: -1733513705478.1875
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "initial": "2025-02-26",
+              "end": "2025-02-26"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.0.0
+          - name: Authorization
+            value: "{{jwt}}"
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/payments/movement-cancellation?id=9010_BHE8976_29_20250303_084109"
+        name: cancellation
+        meta:
+          id: req_17236ed4ec6c4fe190bd42eac507df3e
+          created: 1741005709997
+          modified: 1741013284002
+          isPrivate: false
+          sortKey: -1733883383989.125
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/10.0.0
+          - name: Authorization
+            value: "{{jwt}}"
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Car
+    meta:
+      id: fld_28123012c36847f4a6ffa99ac3395066
+      created: 1734622781120
+      modified: 1734622781120
+      sortKey: -1734622781120
+    children:
+      - url: "{{api}}/car/queries/has-new-plates"
+        name: has-new-plates
+        meta:
+          id: req_a34566c8ce6d4fad9f5b6b1a884f25a4
+          created: 1733519557546
+          modified: 1742936242159
+          isPrivate: false
+          sortKey: -1734622790391
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"module":"MODULE_PARKING_PROD",
+            	"customer":"594",
+            	"branch":"28"
+            	
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.0.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/car/queries/check-entrances-and-exits"
+        name: check-entrances-and-exits
+        meta:
+          id: req_2eb77bcc5c4149609c5b0e2ad2d32c01
+          created: 1734000286028
+          modified: 1741881803996
+          isPrivate: false
+          sortKey: -1734622790441
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"module":"MODULE_PARKING_PROD",
+            	"customer":"594",
+            	"branch":"28"
+            	
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.0.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/car/type/GetCarTypes"
+        name: GetCarTypes
+        meta:
+          id: req_3564d4e09b954150b2ab32e27bf0c674
+          created: 1734957291511
+          modified: 1741871491676
+          isPrivate: false
+          sortKey: -1734622785805.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"module":"MODULE_PARKING_PROD",
+            	"customer":"594",
+            	"branch":"28"
+            	
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.0.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/car/created/newcar"
+        name: saveNewCar
+        meta:
+          id: req_308e907e41384c75afe55642294be27e
+          created: 1734970166411
+          modified: 1741921056402
+          isPrivate: false
+          sortKey: -1734622783512.75
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"plate":"xx223",
+            	"fk_type_of_vehicle":2,
+            	"fk_typecar":"673",
+            	"fk_color":"1",
+            	"prisma":98,
+            	"type_print":2
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.0.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/car/queries/get-is-plate-monthly"
+        name: get-is-plate-monthly.php
+        meta:
+          id: req_a0e50c57e4ee400696872320ec991ca2
+          created: 1735928500395
+          modified: 1741888572437
+          isPrivate: false
+          sortKey: -1734622784659.125
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"plate":"plc123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.0.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/integrations/connection-by-module"
+        name: connection-by-module
+        meta:
+          id: req_37589c16af6a4534b23e4cc52bf1d145
+          created: 1742494328451
+          modified: 1744232855611
+          isPrivate: false
+          sortKey: -1734622788098.25
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"module":"MODULE_PARKING_PROD",
+            	"customer":"594",
+            	"branch":"28"
+            	
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.0.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Settings
+    meta:
+      id: fld_0eda2178ab274830a19aa0e0ec63b09c
+      created: 1735228429603
+      modified: 1741871505435
+      sortKey: -1735228429603
+    children:
+      - url: "{{api}}/settings/configure-pix"
+        name: saveNewCar
+        meta:
+          id: req_5d71bbbb482f4386b8d9c0a22f491ced
+          created: 1735228438554
+          modified: 1741920793482
+          isPrivate: false
+          sortKey: -1735228443194
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"pix_code":"APP_SETTING_PIX_28",
+            	"pix_key":"3218667"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.0.0
+          - name: Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: monthlypayers
+    meta:
+      id: fld_014e09da729d4ea68e1cebb90a45f715
+      created: 1735478245140
+      modified: 1744232866518
+      sortKey: -1733439764931
+    children:
+      - url: "{{api}}/monthlypayers/create-monthly-payers"
+        name: create-monthly-payers
+        meta:
+          id: req_121c9ae9b2c043fb8d3ed254c0379e39
+          created: 1735478245143
+          modified: 1735905927060
+          isPrivate: false
+          sortKey: -1733439769776
+        method: POST
+        body:
+          mimeType: application/json
+          text: >-
+            {
+                    		"userId":4,
+            						"name":"A",
+                        "email": "A@a.coms",
+                        "dt_nasc":"1983-12-21",
+                        "rg":"4517052s70",
+                        "cpf": "321866s70895",
+                        "phone": "999999",
+                        "phone_movel":"116365252",
+                        "address": "Autk",
+                        "cep": "02647500",
+                        "number": 32,
+                        "complement":"pfdsmfjdsfodsiofjpods",
+                        "city":"sao paulo",
+                        "day_payment": 11,
+                        "used_vacancies": 1,
+                        "update": null,
+                        "obs": "´fkdspofkpdsokfpodsfkpodskfpodskpfkdsfkdsfkdspfkpdsfkpsd"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.0.0
+          - name: Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/monthlypayers/monthly-payers-list"
+        name: monthly-payers-all
+        meta:
+          id: req_03363d51095b451cade9b62260ce2f11
+          created: 1735643682717
+          modified: 1735643725290
+          isPrivate: false
+          sortKey: -1733439769726
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/10.0.0
+          - name: Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/monthlypayers/associatecarwithmonthly-member"
+        name: associatecarwithmonthly-member
+        meta:
+          id: req_7f6e1b762fe34831b9061b12bd3b336e
+          created: 1735742506947
+          modified: 1735752775028
+          isPrivate: false
+          sortKey: -1733439769751
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"monthly_id":"12",
+            	"plate":"BCS2071",
+            	"fk_typecar":"673",
+            	"fk_color":"1",
+            	"prisma":98
+            	
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.0.0
+          - name: Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/monthlypayers/monthly-payers-cars?id=12 "
+        name: monthly-payers-cars
+        meta:
+          id: req_12c366a1677d4e92afd67628b2f213d1
+          created: 1735823826249
+          modified: 1735825208535
+          isPrivate: false
+          sortKey: -1733439769738.5
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/10.0.0
+          - name: Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/monthlypayers/remove-monthly-payers-cars-list?id=83"
+        name: remove-monthly-payers-cars-list
+        meta:
+          id: req_2f5f9eea8c4a4337b1bb230dd56be9be
+          created: 1735833036416
+          modified: 1735834787166
+          isPrivate: false
+          sortKey: -1733439769732.25
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/10.0.0
+          - name: Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/monthlypayers/disable-monthly-subscription?id=1"
+        name: disable-monthly-subscription
+        meta:
+          id: req_f0f71ee0406a49eb88d990e41f9e0213
+          created: 1735848149679
+          modified: 1735848292350
+          isPrivate: false
+          sortKey: -1733439769729.125
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/10.0.0
+          - name: Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/monthlypayers/update-monthly-payers"
+        name: update-monthly-payers
+        meta:
+          id: req_7ae0f6b3e3284a6b93e839e72ccc1be8
+          created: 1735905934237
+          modified: 1735906160556
+          isPrivate: false
+          sortKey: -1733439769763.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: >-
+            {
+            	          "id":12,
+                    		"userId":4,
+            						"name":"A",
+                        "email": "A@a.coms",
+                        "dt_nasc":"1983-12-21",
+                        "phone": "999999",
+                        "phone_movel":"116365252",
+                        "address": "Autk",
+                        "cep": "02647500",
+                        "number": 32,
+                        "complement":"pfdsmfjdsfodsiofjpods",
+                        "city":"sao paulo",
+                        "day_payment": 11,
+                        "used_vacancies": 1,
+                        "update": null,
+                        "obs": "´fkdspofkpdsokfpodsfkpodskfpodskpfkdsfkdsfkdspfkpdsfkpsd"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.0.0
+          - name: Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/monthlypayers/monthly-payers-list"
+        name: monthly-payers-list
+        meta:
+          id: req_4dae6c5f0c3c4c4c8972d01fb9851fd9
+          created: 1743183452063
+          modified: 1743184241284
+          isPrivate: false
+          sortKey: -1733439769774.4375
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/10.0.0
+            id: pair_0139b868ff464cab9561ba2885311882
+          - name: User-Authorization
+            value: "{{jwt}}"
+            id: pair_d19e9a95af2340da815bd9ff02e252c0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: agreements
+    meta:
+      id: fld_4a537c3187eb43af95f64cffac88f778
+      created: 1738186118154
+      modified: 1738186118154
+      sortKey: -1738186118154
+    children:
+      - url: "{{api}}/agreements/create-agreement"
+        name: create-agreement
+        meta:
+          id: req_5439e2e5a08140b7936cd0ebfa1f7d33
+          created: 1738186149941
+          modified: 1738763920028
+          isPrivate: false
+          sortKey: -1738186158025
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	  		"name":"AACd",
+                    "doc":"02",
+                    "description":"03",
+                    "address":"",
+                    "start":"00:00",
+                    "end":"02:00",
+                    "prices":"10.00",
+            			  "fk_branche_id":29
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.3.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/agreements/by-agreement?id=40"
+        name: by-agreement
+        meta:
+          id: req_dc093cd70356418da45e58335f126f7c
+          created: 1738246722316
+          modified: 1738755119733
+          isPrivate: false
+          sortKey: -1737004704044
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	  		"name":"01",
+                    "doc":"02",
+                    "description":"03",
+                    "address":"",
+                    "start":"00:00",
+                    "end":"02:00",
+                    "prices":"10.00",
+            			  "branches_id":28
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.3.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/agreements/all-agreements?pager=1&limit=10"
+        name: all-agreements
+        meta:
+          id: req_36e531a329ca41aea9afb7a3ece3e8b5
+          created: 1738249129073
+          modified: 1738747242144
+          isPrivate: false
+          sortKey: -1736413977053.5
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/10.3.0
+          - name: User-Authorization
+            value: "
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNjc5ZjliMzU5OGE5MSIsIm\
+              VtYWlsIjoia2tpZHNAa2tpZHMuY29tLmJyIiwidXNlciI6NSwiZ3JvdXAiOjIsImN\
+              1c3RvbWVyIjo1OTUsImJyYW5jaCI6MjksImlwIjoiMjFiMTliZWM1ZGVmMTc1ODkz\
+              YWQ1ZmEwMWE3MDA1YWI4ZGJiODQ1ZSJ9.ecpSSEKl2NLY2RtA8wpaqTgXJWLlPRtY\
+              fQuv3Sklog0"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/agreements/update-agreement"
+        name: update-agreement
+        meta:
+          id: req_12d36fa36ea146a6b929e00439214232
+          created: 1738251321502
+          modified: 1738755015748
+          isPrivate: false
+          sortKey: -1737595431034.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {	
+            	  	  "id":40,
+            			  "name":"0c5",
+                    "doc":"02",
+                    "description":"03",
+                    "address":"06",
+                    "start":"00:00",
+                    "end":"02:00",
+                    "prices":"50.02"
+            	
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.3.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/agreements/active-agreement?id=23"
+        name: active-agreement
+        meta:
+          id: req_dc3d6cf7df4544e399566a50a56c8605
+          created: 1738256022494
+          modified: 1738256796329
+          isPrivate: false
+          sortKey: -1736709340548.75
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/10.3.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/agreements/desactive-agreement?id=22"
+        name: desactive-agreement
+        meta:
+          id: req_bc73b481b5334031837c5472f7b3caef
+          created: 1738256438591
+          modified: 1738256936124
+          isPrivate: false
+          sortKey: -1736561658801.125
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/10.3.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/agreements/delete-agreement?id=27"
+        name: delete-agreement
+        meta:
+          id: req_1cc6fe267f4543089e3c4d6fdf58028a
+          created: 1738257080731
+          modified: 1744232871272
+          isPrivate: false
+          sortKey: -1736487817927.3125
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/10.3.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: prices-intervals
+    meta:
+      id: fld_9a5c8fa02d114c13a35ae61eb7110e79
+      created: 1738867377878
+      modified: 1740679728724
+      sortKey: -1738867377878
+    children:
+      - url: "{{api}}/prices/select-prices"
+        name: select-prices
+        meta:
+          id: req_6598b6967085417e8383fabba836088c
+          created: 1738867387826
+          modified: 1738872109904
+          isPrivate: false
+          sortKey: -1738867391438
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/10.3.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/prices/delete-price-interval?fk_princes_id=2&id=14"
+        name: delete-price-interval
+        meta:
+          id: req_0a5ccb352416477ea29d3eb89f55cbcc
+          created: 1738867562267
+          modified: 1738868645141
+          isPrivate: false
+          sortKey: -1738526774731.5
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/10.3.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/prices/create-price-interval"
+        name: create-price-interval
+        meta:
+          id: req_290a597e25e246b3b60ec18a8f08ddbd
+          created: 1738867671142
+          modified: 1738868626894
+          isPrivate: false
+          sortKey: -1738356466378.25
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	      "id":13,
+            	  		"fk_princes_id":2
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.3.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: units
+    meta:
+      id: fld_8e7a6860eebe40ac8338a4fd2ea1fcbd
+      created: 1739492012157
+      modified: 1739492012157
+      sortKey: -1739492012157
+    children:
+      - url: https://inforcomp.com.br/integrations/connectprint/searchForNewCarEntry.php
+        name: Status
+        meta:
+          id: req_4b3e302118bf4ddea09041f325bc1146
+          created: 1733439769826
+          modified: 1741881940647
+          isPrivate: false
+          sortKey: -1739492018470
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"client":11,
+            	"filial":"11",
+            	"cameras":[1,2]
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/tests"
+        name: testes
+        meta:
+          id: req_34d78f8795784fdba6b2516dea77038c
+          created: 1735823250063
+          modified: 1743104275869
+          isPrivate: false
+          sortKey: -1739492018370
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"module":"MODULE_PARKING_PROD",
+            	"customer":"594",
+            	"branch":"28"
+            	
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.3.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: box
+    meta:
+      id: fld_a55e794776cb49c29c3dba8002af2578
+      created: 1739492153007
+      modified: 1739492153007
+      sortKey: -1739492153007
+    children:
+      - url: "{{api}}/box/check-if-the-box-has-been-opened"
+        name: verificar_caixa
+        meta:
+          id: req_6582f1385f484fa29e561dd5829721a6
+          created: 1739527691320
+          modified: 1739731789246
+          isPrivate: false
+          sortKey: -1739527695241
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/10.3.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/box/open-the-cash-register"
+        name: abrir caixa
+        meta:
+          id: req_ce4daeced9634cb9bf0f35bd74f5d041
+          created: 1739532706081
+          modified: 1740679724907
+          isPrivate: false
+          sortKey: -1739509856855.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"amount":"1230"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.3.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/box/close-the-cash-register"
+        name: fechar caixa
+        meta:
+          id: req_92526d1f2aa748ed97d4ffcce199ad48
+          created: 1739730993885
+          modified: 1739731500426
+          isPrivate: false
+          sortKey: -1739500937662.75
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"amount":"1230"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.3.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: My Folder
+    meta:
+      id: fld_4f13c283d80a49069f83cd197b6f5c68
+      created: 1739803619761
+      modified: 1739803619761
+      sortKey: -1739803619761
+    children:
+      - url: https://inforcomp.com.br/integrations/connectprint/authentication
+        name: authentication
+        meta:
+          id: req_33bd23c093f34f69bad1a303e862890f
+          created: 1739803664090
+          modified: 1740679720722
+          isPrivate: false
+          sortKey: -1739803664090
+        method: POST
+        body:
+          mimeType: application/json
+          text: '{"email":"imp@kkkids.com"}'
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.3.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://inforcomp.com.br/integrations/connectprint/searchForNewCarEntry.php
+        name: ssss
+        meta:
+          id: req_22a3d86474634ca58250cecd41dae194
+          created: 1739805879701
+          modified: 1739806056152
+          isPrivate: false
+          sortKey: -1739665679665.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: '{"client":11, "filial":11,"cameras":[1]}'
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.3.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: reports
+    meta:
+      id: fld_9f4ac3ab56644bceaef5dc2b323ab25a
+      created: 1741017160760
+      modified: 1741017160760
+      sortKey: -1741017160761
+    children:
+      - url: "{{api}}/reports/summary-of-the-day?token={{ jwt}}"
+        name: summary-of-the-day
+        meta:
+          id: req_46e4584a309a4727ac73184d9abfefcf
+          created: 1741031540811
+          modified: 1741040553394
+          isPrivate: false
+          sortKey: -1741031546071
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/10.3.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/reports/summary-of-the-period?token={{
+          jwt}}&initialDate=2025-03-03&endDate=2025-03-05"
+        name: summary-of-the-period
+        meta:
+          id: req_a28aa3938b8e4e308d702dcd7f658bbe
+          created: 1741040564337
+          modified: 1741049111404
+          isPrivate: false
+          sortKey: -1740472549080.5
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/10.3.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: print
+    meta:
+      id: fld_2cc1815d50f74d3fb8818f774fe08ac9
+      created: 1741102810954
+      modified: 1741102810954
+      sortKey: -1741102810954
+    children:
+      - url: "{{api}}/print-remote/checkifyouhaveanewplatelocal?token={{jwt}}"
+        name: print-local
+        meta:
+          id: req_5e4c4bd891be4b438e86fc70862044c0
+          created: 1741102823731
+          modified: 1741890895209
+          isPrivate: false
+          sortKey: -1741102829249
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/10.3.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/print-remote/isprintprocessedplatelocal"
+        name: save-local
+        meta:
+          id: req_acb3f3471ed541cd8c42759c0d1ba1f7
+          created: 1741103067110
+          modified: 1741112159184
+          isPrivate: false
+          sortKey: -1741067187660
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id":7069
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.3.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/print-remote/printplateagain.php"
+        name: print-local-reset
+        meta:
+          id: req_47418e323ae4446b92e606cbd014591c
+          created: 1741713215136
+          modified: 1741868611482
+          isPrivate: false
+          sortKey: -1741085008454.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id":"11108_FUA2553_29_20250311_083740"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.3.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: totalizers
+    meta:
+      id: fld_5a38b83cc1684e70b16849282f4953d9
+      created: 1742559676948
+      modified: 1742559676948
+      sortKey: -1742559676948
+    children:
+      - url: "{{api}}/totalizers/closing-of-the-day"
+        name: closing-of-the-day
+        meta:
+          id: req_ad1d91f83ad44b70bfd11dd163993886
+          created: 1742559713019
+          modified: 1742758100113
+          isPrivate: false
+          sortKey: -1742559718519
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/10.3.0
+          - name: User-Authorization
+            value: "{{jwt}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_27389932e5b245b6a1920609fb41f91e
+    created: 1733439647969
+    modified: 1743183498643
+  cookies:
+    - key: PHPSESSID
+      value: 7516cd21c73bd67de6af79e18cbacd9d
+      domain: inforcomp.com.br
+      path: /
+      hostOnly: true
+      creation: 2025-03-27T19:41:53.993Z
+      id: 6cfe62cb-2670-4cf2-bd91-f34579ef36cb
+    - key: userView
+      value: inforcomp
+      maxAge: 86400
+      domain: inforcomp.com.br
+      path: /
+      hostOnly: true
+      creation: 2025-03-27T19:41:53.993Z
+      lastAccessed: 2025-03-28T17:38:18.643Z
+      id: 840116b8-4bdb-47cf-a74d-89ab341b0ce3
+environments:
+  name: Base Environment
+  meta:
+    id: env_25cf2841df5449568409acab4a7d30fc
+    created: 1733439647966
+    modified: 1733439647966
+    isPrivate: false
+  subEnvironments:
+    - name: Local(Docker)
+      meta:
+        id: env_bc83083d7f8a460b8483233c8e21c857
+        created: 1734537453534
+        modified: 1743104544969
+        isPrivate: true
+        sortKey: 1733984600511
+      data:
+        api: http://localhost:8080/inforcomp.parking.api/public
+        jwt: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNjdlNWFhMGY2ZTEzMSIsImVtYWlsIjoia2tpZHNAa2tpZHMuY29tLmJyIiwidXNlciI6NSwiZ3JvdXAiOjIsImN1c3RvbWVyIjo1OTUsImJyYW5jaCI6MjksImlwIjoiMjFiMTliZWM1ZGVmMTc1ODkzYWQ1ZmEwMWE3MDA1YWI4ZGJiODQ1ZSJ9.OGUsQEQ1vQJiyzJ2xLlq9No_JL1UVq4SlIMrKJSpoxk
+    - name: Producao
+      meta:
+        id: env_821c0d4c1ca24a648bdfcb93c82aa034
+        created: 1739740254268
+        modified: 1743183581425
+        isPrivate: true
+        sortKey: 1733984600561
+      data:
+        api: http://inforx.tech/api2/inforcomp.parking.api/public
+        jwt: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNjdlNmRlOTQ3NTdlNiIsImVtYWlsIjoia2tpZHNAa2tpZHMuY29tLmJyIiwidXNlciI6NSwiZ3JvdXAiOjIsImN1c3RvbWVyIjo1OTUsImJyYW5jaCI6MjksImlwIjoiZDI2YzcyYjk5ZjY2MTJiMTczYjc2OTQwNzg4MWQ3NmJjNmUxMjJiNSJ9.kNN96oqV6sdQ10VgJAc0cgPuwVAG0hT7EYlw1mnZeFs

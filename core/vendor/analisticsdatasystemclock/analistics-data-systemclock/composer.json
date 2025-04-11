@@ -1,0 +1,18 @@
+{
+    "name": "analisticsdatasystemclock/analistics-data-systemclock",
+    "description": "EdilsonCsilva",
+    "type": "n",
+    "autoload": {
+        "psr-4": {
+            "AnalisticsData\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "edilson silva",
+            "email": "edilsonprojetosgits@gmail.com"
+        }
+    ], 
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

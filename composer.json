@@ -1,0 +1,22 @@
+{
+   
+    "autoload": {
+        "psr-4": {
+            "Adapters\\": "core/Adapters/",
+            "Commons\\": "core/Commons/",
+            "Dtos\\": "core/Dtos/",
+            "Interfaces\\": "core/Interfaces/",
+            "Models\\": "core/Models/",
+            "Repositories\\": "core/Repositories/",
+            "Requests\\": "core/Requests/",
+            "Services\\": "core/Services/",
+            "Resources\\": "core/Resources/",
+            "Middleware\\":"core/Middleware/",
+            "UseCases\\":"core/UseCases/" 
+        
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
+    }
+}

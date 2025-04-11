@@ -1,2 +1,2 @@
-# inforx-api
-Api do sitema de estacionamento do InfoX V2
+# api-inforcomp-parking
+Api Base da Controladora feita Sistema de Estacionamento
