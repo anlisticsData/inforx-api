@@ -22,6 +22,7 @@ class RecordCameraMovementUseCase implements IUserCase
     public function execute(MovementCameraDto $input)
     {
 
+
         try {
             $isMovement = $this->iMovimentCameras->findByUuid($input->uuid);
             if($isMovement==null){

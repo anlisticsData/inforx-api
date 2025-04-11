@@ -5,6 +5,9 @@ class Strings{
 
     public static $STR_EMPYTY ="";
 
+
+    public static $APP_PRINCES_TYPES_ERROR_PLATE_INVALID = "Placa Inválida.";
+    
     public static $STR_REGISTER_CREATED_COM_SUCESS ="Registro criado com Sucesso.";
     public static $STR_REGISTER_CREATED_COM_NOT_SUCESS ="#Erro ao Criar o Registro.";
 

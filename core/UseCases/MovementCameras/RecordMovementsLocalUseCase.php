@@ -3,50 +3,62 @@
 
 namespace UseCases\MovementCameras;
 
-use Commons\Clock;
 use Exception;
+use Commons\Clock;
 use Commons\Uteis;
-use Interfaces\IUserCase;
-use Dtos\MovementCameraDto;
 use Dtos\MovementsDto;
-use Interfaces\MovementCameras\IMovimentCameras;
-use Resources\HttpStatus;
 use Resources\Strings;
+use Interfaces\IUserCase;
+use Resources\HttpStatus;
+use Dtos\MovementCameraDto;
+use UseCases\Core\PlateAndValidUseCase;
+use Interfaces\MovementCameras\IMovimentCameras;
 
 class RecordMovementsLocalUseCase implements IUserCase
 {
     private IMovimentCameras $iMovimentCameras;
     private RecordCameraMovementUseCase $recordCameraMovementUse;
+    private PlateAndValidUseCase $plateAndValidUseCase;
+    private RecordCameraMovementUseCase $recordCameraMovementUseCase;
 
-    public function __construct(iMovimentCameras $iMovimentCameras)
+
+
+
+
+    public function __construct(iMovimentCameras $iMovimentCameras, PlateAndValidUseCase $plateAndValidUseCase , RecordCameraMovementUseCase $recordCameraMovementUseCase)
     {
         $this->iMovimentCameras = $iMovimentCameras;
-        $this->recordCameraMovementUse =  new RecordCameraMovementUseCase($iMovimentCameras);
-        return $this;
+        $this->plateAndValidUseCase = $plateAndValidUseCase;
+        $this->recordCameraMovementUseCase = $recordCameraMovementUseCase;
     }
-    public function execute($listMovementRemote,$fkBranchId)
+ 
+    public function execute($listMovementRemote, $fkBranchId)
     {
         try {
-            foreach($listMovementRemote as $movement){
-                $movementLocal =  new MovementCameraDto([
-                    "fk_branch_id"=>$fkBranchId,
-                    "nsr" =>$movement["nsr"],
-                    "data"=>$movement["data"],
-                    "hours"=>$movement["hora"],
-                    "processed"=>0,
-                    "sensor_code"=>$movement["codigosensor"],
-                    "concierge"=>$movement["portatirasensor"],
-                    "plate"=>$movement["placa"],
-                    "created_at"=>$movement["created_at"],
-                    "remote_ref"=>$movement["codigo"],
-                    "update_at"=>Clock::NowDate()
-                ]);
-                $this->recordCameraMovementUse->execute($movementLocal);
+            foreach ($listMovementRemote as $movement) {
+                if ($this->plateAndValidUseCase->execute($movement["placa"]) == 1) {
+
+                    $movementLocal =  new MovementCameraDto([
+                        "fk_branch_id" => $fkBranchId,
+                        "nsr" => $movement["nsr"],
+                        "data" => $movement["data"],
+                        "hours" => $movement["hora"],
+                        "processed" => 0,
+                        "sensor_code" => $movement["codigosensor"],
+                        "concierge" => $movement["portatirasensor"],
+                        "plate" => $movement["placa"],
+                        "created_at" => $movement["created_at"],
+                        "remote_ref" => $movement["codigo"],
+                        "update_at" => Clock::NowDate()
+                    ]);
+
+                  
+                    
+                    $this->recordCameraMovementUse->execute($movementLocal);
+                }
             }
         } catch (Exception $e) {
-            throw new Exception($e->getMessage(),$e->getCode());
+            throw new Exception($e->getMessage(), $e->getCode());
         }
-
- 
     }
 }

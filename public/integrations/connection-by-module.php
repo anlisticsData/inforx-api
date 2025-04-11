@@ -12,16 +12,18 @@ use Middleware\Authorization;
 use Requests\HasNewPlateInput;
 use Services\BranchesServices;
 use Repositories\Car\CartypeRepository;
+use UseCases\Core\PlateAndValidUseCase;
 use Adapters\PdoMysqlConectedModuleAdapter;
 use UseCases\Cartypes\TypeOfVehiclesUseCase;
+use Repositories\Payments\PaymentsRepository;
 use UseCases\Movements\CreateMovementUserCase;
 use Repositories\Movements\MovementsRepository;
 use UseCases\MovementCameras\MaxRemoteRefUseCase;
 use UseCases\Movements\ByUuidMovementPlateUserCase;
 use UseCases\Modules\SearchCurrentLicensePlatesUserCase;
+use UseCases\MovementCameras\RecordCameraMovementUseCase;
 use UseCases\MovementCameras\RecordMovementsLocalUseCase;
 use Repositories\MovementCameras\MovimentCamerasRepository;
-use Repositories\Payments\PaymentsRepository;
 use UseCases\MovementCameras\ProcessMovementRemoteInLocalUserCase;
 require_once __DIR__."./../../core/Settings.php";
 try {
@@ -59,7 +61,7 @@ try {
     );
     $SearchCurrentLicensePlatesUserCase =  new SearchCurrentLicensePlatesUserCase(new PdoMysqlConectedModuleAdapter($modulo));
     $movementsRemote = $SearchCurrentLicensePlatesUserCase->execute($resultMaxRemoteCamera, $branchInformationsParser);
-    $RecordMovementsLocalUseCase =  new RecordMovementsLocalUseCase(new MovimentCamerasRepository());
+    $RecordMovementsLocalUseCase =  new RecordMovementsLocalUseCase(new MovimentCamerasRepository(),new PlateAndValidUseCase(),new RecordCameraMovementUseCase(new MovimentCamerasRepository()));
     $RecordMovementsLocalUseCase->execute($movementsRemote, $user->branches_id);
     $ProcessMovementRemoteInLocalUserCase =  new ProcessMovementRemoteInLocalUserCase(new MovimentCamerasRepository(), new MovementsRepository(), new PaymentsRepository);
     $ProcessMovementRemoteInLocalUserCase->execute($user, $vehicles, $ByUuidMovementUserCase, $CreateMovementUserCase);
