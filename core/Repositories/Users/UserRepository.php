@@ -42,6 +42,28 @@ class UserRepository implements IUserRepository
     }
 
 
+    function permissions($groupId){
+        $permissions = [];
+        try {
+            $sql = new StringBuilder();
+            $sql->Insert("select  p.id,p.router,p.state  from permissions p  join permissions_has_groups pg ");
+            $sql->Insert(" on pg.permissions_id=p.id where  pg.groups_id =?");
+            $resultData =  $this->repository->query($sql->toString(), array($groupId));
+            foreach ($resultData as $index => $row) {
+                $permissions[] =[
+                    'id' => $row['id'],
+                    'router' => $row['router'],
+                    'state' => $row['state']
+                ];  
+
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage(), HttpStatus::$HTTP_CODE_INTERNAL_SERVER_ERROR);
+        }
+        return $permissions;
+    }
+
+
 
     function userUpdatePassword($codeUser, $password)
     {

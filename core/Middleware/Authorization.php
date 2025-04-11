@@ -75,4 +75,9 @@ class Authorization {
     public static function getUserCode() {
         return self::Token()['user'] ?? null;
     }
+
+    public static function getUserGroup() {
+        return self::Token()['group'] ?? null;
+    }
+
 }

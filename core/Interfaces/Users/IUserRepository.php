@@ -20,6 +20,7 @@ interface IUserRepository{
    function byEmail($userEmail);
    function createdOperator(User $user);
    function changePassword($userId,$newPassword);
+   function permissions($groupId);
    
 
 
